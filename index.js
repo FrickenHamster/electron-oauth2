@@ -68,7 +68,6 @@ module.exports = function (config, windowParams) {
       }
 
       authWindow.webContents.on('did-redirect-navigation', (event, url) => {
-        console.log('drn')
         onCallback(url);
       });
 
