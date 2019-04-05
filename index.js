@@ -35,6 +35,10 @@ module.exports = function (config, windowParams) {
     return new Promise(function (resolve, reject) {
       const authWindow = new BrowserWindow(windowParams || {'use-content-size': true});
 
+      if (opts.clearCredentials) {
+        authWindow.webContents.session.clearStorageData();
+      }
+
       authWindow.loadURL(url);
       authWindow.show();
 
